@@ -1,0 +1,28 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+}
+
+plugins {
+    id "org.jetbrains.intellij" version "0.0.39"
+}
+
+apply plugin: 'idea'
+apply plugin: 'org.jetbrains.intellij'
+apply plugin: 'java'
+
+intellij {
+    version ideaVersion //IntelliJ IDEA dependency
+    plugins 'coverage' //Bundled plugin dependencies
+    pluginName 'idea-coati'
+
+    publish {
+		username publishUsername
+		password publishPassword
+		pluginId publishPluginId
+		channel publishChannel
+    }
+}
+
+group 'io.coati'

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<idea-plugin version="1">
+    <id>io.coati.idea</id>
+    <name>idea-coati</name>
+    <version>0.0.1</version>
+    <vendor email="" url="https://github.com/CoatiSoftware/idea-plugin">Coati Software</vendor>
+
+    <description><![CDATA[
+      Coati plugin for idea IDE's like Intellij or CLion. Provides communtication with Coati.<br>
+    ]]></description>
+
+    <change-notes><![CDATA[
+      Release 0.4: First release.<br>
+    ]]>
+    </change-notes>
+
+    <idea-version since-build="145"/>
+
+
+    <depends>com.intellij.modules.lang</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <applicationConfigurable displayName="Coati Settings" instance="io.coati.idea.CoatiConfigurable" />
+        <applicationService serviceInterface="io.coati.idea.CoatiOptions" serviceImplementation="io.coati.idea.CoatiOptions" />
+    </extensions>
+
+    <application-components>
+        <component>
+            <implementation-class>io.coati.idea.TcpListener</implementation-class>
+        </component>
+    </application-components>
+
+    <project-components>
+    </project-components>
+
+    <actions>
+        <group id="IdeaCoati.CoatiPopup" text="Coati" description="Coati">
+            <add-to-group group-id="EditorPopupMenu" anchor="last"/>
+            <action id="IdeaCoati.Textboxes¹" class="io.coati.idea.ActivateTokenAction"
+                    icon="/icons/coati.png"
+                    text="Send location" description="Sends location to Coati"/>
+        </group>
+    </actions>
+
+</idea-plugin>
