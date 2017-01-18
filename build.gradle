@@ -5,7 +5,7 @@ buildscript {
 }
 
 plugins {
-    id "org.jetbrains.intellij" version "0.0.39"
+    id "org.jetbrains.intellij" version "0.2.0"
 }
 
 apply plugin: 'idea'
@@ -17,12 +17,14 @@ intellij {
     plugins 'coverage' //Bundled plugin dependencies
     pluginName 'idea-coati'
 
+	updateSinceUntilBuild false
+
     publish {
-		username publishUsername
-		password publishPassword
-		pluginId publishPluginId
-		channel publishChannel
+		username 'astallinger@coati.io'
+		password '2dSXkE4xNF4ZLeMWjRHk'
+		//channel publishChannel
     }
 }
 
 group 'io.coati'
+version '0.4.5'

@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
 <idea-plugin version="1">
+	<idea-version since-build="145"/>
     <id>io.coati.idea</id>
     <name>idea-coati</name>
-    <version>0.4.2</version>
+    <version>0.4.6</version>
     <vendor email="" url="https://github.com/CoatiSoftware/idea-plugin">Coati Software</vendor>
 
     <description><![CDATA[
@@ -14,9 +15,6 @@
       Release 0.4: First release.<br>
     ]]>
     </change-notes>
-
-    <idea-version since-build="162" until-build="162.*"/>
-
 
     <depends>com.intellij.modules.lang</depends>
 
