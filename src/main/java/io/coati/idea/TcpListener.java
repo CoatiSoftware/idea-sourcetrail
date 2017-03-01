@@ -46,6 +46,7 @@ public class TcpListener extends Thread implements ApplicationComponent {
         CoatiOptions option = CoatiOptions.getInstance();
         try {
             ServerSocket ss = new ServerSocket(option.getEditorPort(),0, InetAddress.getByName(option.getIp()));
+            Ping.send();
             while(true) {
                 Socket socket = ss.accept();
                 try {
@@ -85,6 +86,7 @@ public class TcpListener extends Thread implements ApplicationComponent {
                 }
             }
         } catch (IOException e) {
+
             e.printStackTrace();
         }
     }

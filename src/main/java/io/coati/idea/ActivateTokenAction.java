@@ -1,13 +1,9 @@
 package io.coati.idea;
 
-import com.intellij.openapi.actionSystem.AnAction;
-import com.intellij.openapi.actionSystem.AnActionEvent;
-import com.intellij.openapi.actionSystem.CommonDataKeys;
-import com.intellij.openapi.actionSystem.PlatformDataKeys;
+import com.intellij.openapi.actionSystem.*;
 import com.intellij.openapi.editor.CaretModel;
 import com.intellij.openapi.editor.Editor;
 import com.intellij.openapi.editor.LogicalPosition;
-import com.intellij.openapi.project.Project;
 import com.intellij.openapi.ui.MessageType;
 import com.intellij.openapi.ui.Messages;
 import com.intellij.openapi.ui.popup.Balloon;
@@ -29,7 +25,6 @@ public class ActivateTokenAction extends AnAction {
     public void actionPerformed(AnActionEvent event) {
         CoatiOptions options = CoatiOptions.getInstance();
         String MESSAGE_SPLIT_STRING = ">>";
-        Project project = event.getData(PlatformDataKeys.PROJECT);
         VirtualFile vFile = event.getData(PlatformDataKeys.VIRTUAL_FILE);
         String fileName = vFile != null ? vFile.getPath() : null;
         LogicalPosition logicalPosition = new LogicalPosition(0,0);
@@ -59,12 +54,12 @@ public class ActivateTokenAction extends AnAction {
             String errorMsg =
                     "No connection to a Coati instance\n\n Make sure Coati is running and the right address is used("
                             + options.getIp() + ":" + options.getCoatiPort() + ")";
-            Messages.showMessageDialog(project, errorMsg, "CoatiPluginError", Messages.getErrorIcon());
+            Messages.showMessageDialog(errorMsg, "CoatiPluginError", Messages.getErrorIcon());
             e.printStackTrace();
-
         }
 
-        StatusBar statusbar = WindowManager.getInstance().getStatusBar(project);
+        StatusBar statusbar = WindowManager.getInstance().getStatusBar(DataKeys.PROJECT.getData(event.getDataContext()));
+
         JBPopupFactory.getInstance()
                 .createHtmlTextBalloonBuilder("Location sent to Coati", MessageType.INFO, null)
                 .setFadeoutTime(3000)
