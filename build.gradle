@@ -16,7 +16,7 @@ apply plugin: 'org.jetbrains.intellij'
 
 intellij {
     version ideaVersion //IntelliJ IDEA dependency
-    pluginName 'idea-coati'
+    pluginName 'idea-sourcetrail'
 
 	updateSinceUntilBuild false
 
@@ -27,11 +27,6 @@ intellij {
     }
 }
 
-//publishPlugin {
-    //username 'astallinger@coati.io'
-    //password '2dSXkE4xNF4ZLeMWjRHk'
-    //channels 'Test'
-//}
 
-group 'io.coati'
+group 'io.sourcetrail'
 version '0.4.5'

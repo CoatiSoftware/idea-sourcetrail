@@ -1,4 +1,4 @@
-package io.coati.idea;
+package io.sourcetrail.idea;
 
 import com.intellij.openapi.components.PersistentStateComponent;
 import com.intellij.openapi.components.ServiceManager;
@@ -8,34 +8,34 @@ import com.intellij.util.xmlb.XmlSerializerUtil;
 import org.jetbrains.annotations.Nullable;
 
 @State(
-        name = "CoatiOptions",
+        name = "SourcetrailOptions",
         storages = {
-                @Storage("coati.xml")
+                @Storage("sourcetrail.xml")
         }
 )
-public class CoatiOptions implements PersistentStateComponent<CoatiOptions>{
+public class SourcetrailOptions implements PersistentStateComponent<SourcetrailOptions>{
 
-    private Integer myCoatiPort = 6667;
+    private Integer mySourcetrailPort = 6667;
     private Integer myEditorPort = 6666;
     private String myIp = "localhost";
 
-    public static CoatiOptions getInstance() {
-        return ServiceManager.getService(CoatiOptions.class);
+    public static SourcetrailOptions getInstance() {
+        return ServiceManager.getService(SourcetrailOptions.class);
     }
 
     @Nullable
-    public CoatiOptions getState() {
+    public SourcetrailOptions getState() {
         return this;
     }
 
-    public void loadState(CoatiOptions state)
+    public void loadState(SourcetrailOptions state)
     {
         XmlSerializerUtil.copyBean(state, this);
     }
 
-    public Integer getCoatiPort()
+    public Integer getSourcetrailPort()
     {
-        return myCoatiPort;
+        return mySourcetrailPort;
     }
 
     public String getIp()
@@ -60,9 +60,9 @@ public class CoatiOptions implements PersistentStateComponent<CoatiOptions>{
             myIp = ip;
     }
 
-    public void setCoatiPort(Integer port)
+    public void setSourcetrailPort(Integer port)
     {
         if (port != null)
-            myCoatiPort = port;
+            mySourcetrailPort = port;
     }
 }

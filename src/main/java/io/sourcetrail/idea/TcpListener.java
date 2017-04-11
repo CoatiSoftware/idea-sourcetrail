@@ -1,4 +1,4 @@
-package io.coati.idea;
+package io.sourcetrail.idea;
 
 import com.intellij.ide.impl.ProjectUtil;
 import com.intellij.openapi.application.ApplicationManager;
@@ -26,7 +26,7 @@ import java.net.Socket;
 
 public class TcpListener extends Thread implements ApplicationComponent {
     public TcpListener() {
-        super("Coati plugin TCP listener");
+        super("Sourcetrail plugin TCP listener");
     }
 
     @NonNls @NotNull
@@ -43,7 +43,7 @@ public class TcpListener extends Thread implements ApplicationComponent {
     }
 
     public void run() {
-        CoatiOptions option = CoatiOptions.getInstance();
+        SourcetrailOptions option = SourcetrailOptions.getInstance();
         try {
             ServerSocket ss = new ServerSocket(option.getEditorPort(),0, InetAddress.getByName(option.getIp()));
             Ping.send();
@@ -52,7 +52,7 @@ public class TcpListener extends Thread implements ApplicationComponent {
                 try {
                     BufferedReader r = new BufferedReader(new InputStreamReader(socket.getInputStream()));
                     String message = r.readLine().trim();
-                    CoatiMoveCursorMessage m = new CoatiMoveCursorMessage(message);
+                    SourcetrailMoveCursorMessage m = new SourcetrailMoveCursorMessage(message);
                     if(!m.filename.isEmpty())
                     {
                         ApplicationManager.getApplication().invokeLater(new Runnable() {

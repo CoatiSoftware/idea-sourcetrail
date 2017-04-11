@@ -1,4 +1,4 @@
-package io.coati.idea;
+package io.sourcetrail.idea;
 
 import com.intellij.openapi.options.Configurable;
 import com.intellij.openapi.options.ConfigurationException;
@@ -8,12 +8,12 @@ import org.jetbrains.annotations.Nullable;
 import javax.swing.*;
 import java.text.ParseException;
 
-public class CoatiConfigurable implements Configurable {
+public class SourcetrailConfigurable implements Configurable {
 /*    private JTextField myIp = new JTextField();
-    private JSpinner myCoatiPort = new JSpinner();
+    private JSpinner mySourcetrailPort = new JSpinner();
     private JSpinner myEditorPort = new JSpinner();*/
     private JTextField myIp;
-    private JSpinner myCoatiPort;
+    private JSpinner mySourcetrailPort;
     private JSpinner myEditorPort;
     private JPanel myPanel;
 
@@ -22,10 +22,10 @@ public class CoatiConfigurable implements Configurable {
     }
 
     public void apply() throws ConfigurationException {
-        CoatiOptions coatiOptions = CoatiOptions.getInstance();
-        coatiOptions.setIp(myIp.getText());
+        SourcetrailOptions sourcetrailOptions = SourcetrailOptions.getInstance();
+        sourcetrailOptions.setIp(myIp.getText());
         try {
-            myCoatiPort.commitEdit();
+            mySourcetrailPort.commitEdit();
         }
         catch (ParseException pe) {
             pe.printStackTrace();
@@ -36,15 +36,15 @@ public class CoatiConfigurable implements Configurable {
         catch (ParseException pe) {
             pe.printStackTrace();
         }
-        coatiOptions.setCoatiPort((Integer)myCoatiPort.getValue());
-        coatiOptions.setEditorPort((Integer)myEditorPort.getValue());
+        sourcetrailOptions.setSourcetrailPort((Integer)mySourcetrailPort.getValue());
+        sourcetrailOptions.setEditorPort((Integer)myEditorPort.getValue());
     }
 
     @Nullable
     public JComponent createComponent() {
 /*        myPanel = FormBuilder.createFormBuilder()
                 .addLabeledComponent("IP: ", myIp)
-                .addLabeledComponent("Coati Port: ", myCoatiPort)
+                .addLabeledComponent("Sourcetrail Port: ", mySourcetrailPort)
                 .addLabeledComponentFillVertically("Editor Port: ", myEditorPort)
                 .getPanel();*/
 
@@ -53,24 +53,24 @@ public class CoatiConfigurable implements Configurable {
     }
 
     public boolean isModified() {
-        CoatiOptions coatiOptions = CoatiOptions.getInstance();
+        SourcetrailOptions sourcetrailOptions = SourcetrailOptions.getInstance();
         return true;
     }
 
     public void reset() {
-        CoatiOptions coatiOptions = CoatiOptions.getInstance();
-        myIp.setText(coatiOptions.getIp());
-        myCoatiPort.setValue(coatiOptions.getCoatiPort());
-        myEditorPort.setValue(coatiOptions.getEditorPort());
+        SourcetrailOptions sourcetrailOptions = SourcetrailOptions.getInstance();
+        myIp.setText(sourcetrailOptions.getIp());
+        mySourcetrailPort.setValue(sourcetrailOptions.getSourcetrailPort());
+        myEditorPort.setValue(sourcetrailOptions.getEditorPort());
     }
 
     @Nls
     public String getDisplayName() {
-        return "Coati CoatiConfigurable";
+        return "Sourcetrail SourcetrailConfigurable";
     }
 
     @Nullable
     public String getHelpTopic() {
-        return "Configuration for the Coati plugin";
+        return "Configuration for the Sourcetrail plugin";
     }
 }

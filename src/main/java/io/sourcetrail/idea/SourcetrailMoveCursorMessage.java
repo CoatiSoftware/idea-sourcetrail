@@ -1,11 +1,11 @@
-package io.coati.idea;
+package io.sourcetrail.idea;
 
-public class CoatiMoveCursorMessage {
+public class SourcetrailMoveCursorMessage {
     int row = 0;
     int col = 0;
     String filename = "";
 
-    CoatiMoveCursorMessage(String message)
+    SourcetrailMoveCursorMessage(String message)
     {
         if(message.contains("<EOM>"))
         {

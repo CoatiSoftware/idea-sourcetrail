@@ -1,4 +1,4 @@
-package io.coati.idea;
+package io.sourcetrail.idea;
 
 import com.intellij.openapi.actionSystem.*;
 import com.intellij.openapi.editor.CaretModel;
@@ -23,7 +23,7 @@ public class ActivateTokenAction extends AnAction {
     }
 
     public void actionPerformed(AnActionEvent event) {
-        CoatiOptions options = CoatiOptions.getInstance();
+        SourcetrailOptions options = SourcetrailOptions.getInstance();
         String MESSAGE_SPLIT_STRING = ">>";
         VirtualFile vFile = event.getData(PlatformDataKeys.VIRTUAL_FILE);
         String fileName = vFile != null ? vFile.getPath() : null;
@@ -43,7 +43,7 @@ public class ActivateTokenAction extends AnAction {
                 + (logicalPosition.line + 1) + MESSAGE_SPLIT_STRING + logicalPosition.column + "<EOM>";
         try
         {
-            Socket socket = new Socket(options.getIp(), options.getCoatiPort());
+            Socket socket = new Socket(options.getIp(), options.getSourcetrailPort());
             BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
             writer.write(text);
             writer.flush();
@@ -52,16 +52,16 @@ public class ActivateTokenAction extends AnAction {
         catch(Exception e)
         {
             String errorMsg =
-                    "No connection to a Coati instance\n\n Make sure Coati is running and the right address is used("
-                            + options.getIp() + ":" + options.getCoatiPort() + ")";
-            Messages.showMessageDialog(errorMsg, "CoatiPluginError", Messages.getErrorIcon());
+                    "No connection to a Sourcetrail instance\n\n Make sure Sourcetrail is running and the right address is used("
+                            + options.getIp() + ":" + options.getSourcetrailPort() + ")";
+            Messages.showMessageDialog(errorMsg, "SourcetrailPluginError", Messages.getErrorIcon());
             e.printStackTrace();
         }
 
         StatusBar statusbar = WindowManager.getInstance().getStatusBar(DataKeys.PROJECT.getData(event.getDataContext()));
 
         JBPopupFactory.getInstance()
-                .createHtmlTextBalloonBuilder("Location sent to Coati", MessageType.INFO, null)
+                .createHtmlTextBalloonBuilder("Location sent to Sourcetrail", MessageType.INFO, null)
                 .setFadeoutTime(3000)
                 .createBalloon()
                 .show(RelativePoint.getCenterOf(statusbar.getComponent()), Balloon.Position.atRight);
