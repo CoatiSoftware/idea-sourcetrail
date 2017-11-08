@@ -9,6 +9,7 @@
     ]]></description>
 
     <change-notes><![CDATA[
+	  Release 0.4.7: Fixed NoClassDefFoundError that occurred in CLion. <br/>
       Release 0.4: First release.<br>
     ]]>
     </change-notes>
