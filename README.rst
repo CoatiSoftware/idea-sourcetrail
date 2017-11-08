@@ -1,7 +1,7 @@
 idea-sourcetrail
 ==========
 
-idea-sourcetrail is a plugin for Jetbrain IDEs to communicate with Sourcetrail_.
+Sourcetrail plugin for idea IDEs like Intellij or CLion. Provides synchronization with Sourcetrail_.
 
 .. _Sourcetrail: https://sourcetrail.com
 
@@ -50,7 +50,7 @@ Keyboard shortcut
 Building
 --------
 
-This Plugin is build with Gradle_
+This Plugin is build with Gradle_. Before running any Gradle tasks on this project, please add a ``gradle.properties`` file to the project that defines the ``publishUsername`` and the ``publishPassword`` variables. If you don't plan on publishing the plugin, you can define them as empty.
 
 .. _Gradle: https://gradle.org
 

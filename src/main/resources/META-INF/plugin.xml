@@ -3,18 +3,17 @@
 	<idea-version since-build="145"/>
     <id>io.sourcetrail.idea</id>
     <name>idea-sourcetrail</name>
-    <version>0.4.6</version>
-    <vendor email="" url="https://github.com/SourcetrailSoftware/idea-plugin">Coati Software</vendor>
 
-    <description><![CDATA[
-      Sourcetrail plugin for idea IDE's like Intellij or CLion. Provides communtication with Sourcetrail.<br>
+	<description><![CDATA[
+      Sourcetrail plugin for idea IDEs like Intellij or CLion. Provides synchronization with Sourcetrail.<br>
     ]]></description>
 
     <change-notes><![CDATA[
-	  Release 0.4.2: 2016.2<br/>
       Release 0.4: First release.<br>
     ]]>
     </change-notes>
+	
+    <vendor email="mail@coati.io" url="https://www.sourcetrail.com">Coati Software</vendor>
 
     <depends>com.intellij.modules.lang</depends>
 
@@ -37,7 +36,7 @@
             <add-to-group group-id="EditorPopupMenu" anchor="last"/>
             <action id="IdeaSourcetrail.Textboxes�" class="io.sourcetrail.idea.ActivateTokenAction"
                     icon="/icons/sourcetrail.png"
-                    text="Send location" description="Sends location to Sourcetrail"/>
+                    text="Send Location" description="Sends location to Sourcetrail"/>
         </group>
     </actions>
 
