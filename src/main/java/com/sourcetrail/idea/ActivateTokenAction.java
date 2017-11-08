@@ -58,7 +58,7 @@ public class ActivateTokenAction extends AnAction {
             e.printStackTrace();
         }
 
-        StatusBar statusbar = WindowManager.getInstance().getStatusBar(DataKeys.PROJECT.getData(event.getDataContext()));
+        StatusBar statusbar = WindowManager.getInstance().getStatusBar(PlatformDataKeys.PROJECT.getData(event.getDataContext()));
 
         JBPopupFactory.getInstance()
                 .createHtmlTextBalloonBuilder("Location sent to Sourcetrail", MessageType.INFO, null)
