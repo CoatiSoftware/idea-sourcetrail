@@ -13,11 +13,11 @@ import org.jetbrains.annotations.Nullable;
                 @Storage("sourcetrail.xml")
         }
 )
-public class SourcetrailOptions implements PersistentStateComponent<SourcetrailOptions>{
+
+public class SourcetrailOptions implements PersistentStateComponent<SourcetrailOptions> {
 
     private Integer mySourcetrailPort = 6667;
     private Integer myEditorPort = 6666;
-    private String myIp = "localhost";
 
     public static SourcetrailOptions getInstance() {
         return ServiceManager.getService(SourcetrailOptions.class);
@@ -38,30 +38,16 @@ public class SourcetrailOptions implements PersistentStateComponent<SourcetrailO
         return mySourcetrailPort;
     }
 
-    public String getIp()
-    {
-        return myIp;
-    }
-
-    public Integer getEditorPort()
-    {
+    public Integer getEditorPort() {
         return myEditorPort;
     }
 
-    public void setEditorPort(Integer port)
-    {
+    public void setEditorPort(Integer port) {
         if (port != null)
             myEditorPort = port;
     }
 
-    public void setIp(String ip)
-    {
-        if (ip != null)
-            myIp = ip;
-    }
-
-    public void setSourcetrailPort(Integer port)
-    {
+    public void setSourcetrailPort(Integer port) {
         if (port != null)
             mySourcetrailPort = port;
     }

@@ -35,7 +35,7 @@
     <actions>
         <group id="IdeaSourcetrail.SourcetrailPopup" text="Sourcetrail" description="Sourcetrail">
             <add-to-group group-id="EditorPopupMenu" anchor="last"/>
-            <action id="IdeaSourcetrail.Textboxes�" class="io.sourcetrail.idea.ActivateTokenAction"
+            <action id="IdeaSourcetrail.Textboxes" class="io.sourcetrail.idea.ActivateTokenAction"
                     icon="/icons/sourcetrail.png"
                     text="Send Location" description="Sends location to Sourcetrail"/>
         </group>

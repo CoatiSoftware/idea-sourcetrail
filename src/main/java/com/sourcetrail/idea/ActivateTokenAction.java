@@ -18,6 +18,7 @@ import java.io.OutputStreamWriter;
 import java.net.Socket;
 
 public class ActivateTokenAction extends AnAction {
+
     public ActivateTokenAction() {
         super("ActivateToken");
     }
@@ -29,11 +30,9 @@ public class ActivateTokenAction extends AnAction {
         String fileName = vFile != null ? vFile.getPath() : null;
         LogicalPosition logicalPosition = new LogicalPosition(0,0);
         final Editor editor = event.getData(CommonDataKeys.EDITOR);
-        if (editor != null)
-        {
+        if (editor != null) {
             CaretModel caretModel = editor.getCaretModel();
-            if ( caretModel != null)
-            {
+            if ( caretModel != null) {
                 logicalPosition = caretModel.getLogicalPosition();
             }
         }
@@ -41,19 +40,15 @@ public class ActivateTokenAction extends AnAction {
         String text = "setActiveToken" + MESSAGE_SPLIT_STRING +
                 fileName + MESSAGE_SPLIT_STRING
                 + (logicalPosition.line + 1) + MESSAGE_SPLIT_STRING + logicalPosition.column + "<EOM>";
-        try
-        {
-            Socket socket = new Socket(options.getIp(), options.getSourcetrailPort());
+        try {
+            Socket socket = new Socket("localhost", options.getSourcetrailPort());
             BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
             writer.write(text);
             writer.flush();
             socket.close();
-        }
-        catch(Exception e)
-        {
-            String errorMsg =
-                    "No connection to a Sourcetrail instance\n\n Make sure Sourcetrail is running and the right address is used("
-                            + options.getIp() + ":" + options.getSourcetrailPort() + ")";
+        } catch(Exception e) {
+            String errorMsg = "No connection to a running Sourcetrail instance. Make sure Sourcetrail is running and the "
+                            + "right address is used (localhost:" + options.getSourcetrailPort() + ")";
             Messages.showMessageDialog(errorMsg, "SourcetrailPluginError", Messages.getErrorIcon());
             e.printStackTrace();
         }
@@ -65,7 +60,5 @@ public class ActivateTokenAction extends AnAction {
                 .setFadeoutTime(3000)
                 .createBalloon()
                 .show(RelativePoint.getCenterOf(statusbar.getComponent()), Balloon.Position.atRight);
-
     }
-
 }
