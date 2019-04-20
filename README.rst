@@ -8,10 +8,11 @@ Sourcetrail plugin for idea IDEs like Intellij or CLion. Provides synchronizatio
 Install
 -------
 
-1) **File -> Settings...** or **Ctrl + Alt + s** to open the Settings
-2) Go to Plugins and click Browser Repositories...
-3) search for sourcetrail
-4) install idea-sourcetrail
+1) **File | Settings...** (or **IntelliJ IDEA | Preferences...** for macOS)  to open the Settings
+2) Go to **Plugins**
+3) Click **Marketplace** tab
+4) Search for **idea-sourcetrail**
+5) Click **Install** for **idea-sourcetrail** plugin
 
 Usage
 -----
@@ -25,7 +26,7 @@ From IDE to Sourcetrail
 ~~~~~~~~~~~~~~~~~
 Navigate your textcursor to the location.
 
-* Rightclick -> Send location
+* Right click -> Send location
 
 Preferences
 -----------
