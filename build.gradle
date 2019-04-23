@@ -1,5 +1,5 @@
 plugins { 
-  id "org.jetbrains.intellij" version "0.2.17" 
+  id "org.jetbrains.intellij" version "0.4.8" 
 }
 
 intellij {
@@ -15,4 +15,4 @@ publishPlugin {
 }
 
 group 'io.sourcetrail'
-version '0.4.8'
+version '0.4.9'

@@ -20,7 +20,7 @@ import java.net.Socket;
 public class ActivateTokenAction extends AnAction {
 
     public ActivateTokenAction() {
-        super("ActivateToken");
+        super("Send Location");
     }
 
     public void actionPerformed(AnActionEvent event) {
@@ -32,7 +32,7 @@ public class ActivateTokenAction extends AnAction {
         final Editor editor = event.getData(CommonDataKeys.EDITOR);
         if (editor != null) {
             CaretModel caretModel = editor.getCaretModel();
-            if ( caretModel != null) {
+            if (caretModel != null) {
                 logicalPosition = caretModel.getLogicalPosition();
             }
         }

@@ -9,9 +9,22 @@
     ]]></description>
 
     <change-notes><![CDATA[
-	  Release 0.4.8: Fixed message dialog that has been dispatched on wrong thread. <br/>
-	  Release 0.4.7: Fixed NoClassDefFoundError that occurred in CLion. <br/>
-      Release 0.4: First release.<br>
+	  <p>
+	  Release 0.4.9<br/>
+	  * Fixed UI name of "Send Location" action to match the documentation.<br/>
+	  </p>
+	  <p>
+	  Release 0.4.8<br/>
+	  * Fixed message dialog that has been dispatched on wrong thread.<br/>
+	  </p>
+	  <p>
+	  Release 0.4.7<br/>
+	  * Fixed NoClassDefFoundError that occurred in CLion.<br/>
+	  </p>
+	  <p>
+	  Release 0.4<br/>
+	  * First release.<br>
+	  </p>
     ]]>
     </change-notes>
 	

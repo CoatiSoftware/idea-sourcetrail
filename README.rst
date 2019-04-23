@@ -26,7 +26,7 @@ From IDE to Sourcetrail
 ~~~~~~~~~~~~~~~~~
 Navigate your textcursor to the location.
 
-* Right click -> Send location
+* Right click -> Send Location
 
 Preferences
 -----------
@@ -34,7 +34,7 @@ Preferences
 * **File -> Settings...** or **Crtl + Alt + s** to open the Settings
 * **OtherSettings -> Sourcetrail Settings**
 
-Ports and Ip
+Ports and IP
 ~~~~~~~~~~~~
 
 You can change the ports and ip.
